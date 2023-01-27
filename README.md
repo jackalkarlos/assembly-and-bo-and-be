@@ -33,7 +33,7 @@ Pattern'i 2. adımdaki kod ile gönderiyoruz.  Sunucu çöktükten sonra, Debugg
 
 4 - Test: Paylaştığım kodda, çökerten karakter sayısı kadar "A", ve cidden yazılıp yazılmadığını denemek için 4 adet "B" gönderiyoruz. Hexadecimal üzerinde "42" olarak ifade edilen B değerinin Debugger'da EIP değerine yazıldığını görüyoruz.
 
-#GDB
+# GDB
 ● disassemble main - look at the assembly code of the main function
  ● break *0x12345678 - set a breakpoint at address 0x12345678
  ● x 0x12345678 - examine/print the content of address 0x12345678
@@ -43,7 +43,7 @@ Pattern'i 2. adımdaki kod ile gönderiyoruz.  Sunucu çöktükten sonra, Debugg
  ● continue - continue execution after you stopped at a breakpoint
  ● quit - exit gdb
  
-#General
+# General
 HEAP
 
 STACK

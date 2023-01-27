@@ -32,3 +32,34 @@ Pattern'i 2. adımdaki kod ile gönderiyoruz.  Sunucu çöktükten sonra, Debugg
 Çıktıdan kaçıncı karakterde çöktüğünün bilgisini alıyoruz.
 
 4 - Test: Paylaştığım kodda, çökerten karakter sayısı kadar "A", ve cidden yazılıp yazılmadığını denemek için 4 adet "B" gönderiyoruz. Hexadecimal üzerinde "42" olarak ifade edilen B değerinin Debugger'da EIP değerine yazıldığını görüyoruz.
+
+#GDB
+● disassemble main - look at the assembly code of the main function
+ ● break *0x12345678 - set a breakpoint at address 0x12345678
+ ● x 0x12345678 - examine/print the content of address 0x12345678
+ ● x/xw 0x12345678 - print the content of address 0x12345678 as hex word
+ ● x/s 0x12345678 - print the content of address 0x12345678 as a string
+ ● run - run/restart the program you are debugging
+ ● continue - continue execution after you stopped at a breakpoint
+ ● quit - exit gdb
+ 
+#General
+HEAP
+
+STACK
+Yerel değişkenler, fonksiyonlar içerisinde yapılan işlemler kaydedilir. Ram kaç GB olursa olsun, işletim sisteminin mimarisine göre belirli bir yer ayrılır. Stack bu limiti aşamaz. 
+
+DATA
+Global değişkenler ve statik değişkenler kaydedilir. Yaşam döngüsüne bağlı kalmayan değişkenlerdir.
+
+TEXT
+Assembly Instructions
+
+int x; -> Local Değişken, Stack
+int *y;
+(int*)malloc(sizeof(int)); -> Heapte bir yer aç ve adres ata. Stack içerisinde sadece adresi tutulur. malloc yer ayırma fonksiyonudur. sizeof int'in boyutunu alır ve malloc ile int'in boyutu kadar bir yer ayırır.
+
+Extended Stack Pointer
+Buffer
+Extended Base Pointer
+Extended Instruction Pointer -> SCOPE

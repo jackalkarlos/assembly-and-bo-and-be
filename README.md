@@ -1,3 +1,5 @@
+# Atıl Samancıoğlu Etik Hackerlik Python Kursunun Buffer Overflow kısmının notlarıdır! "vulnserver" kullanılmıştır.
+# https://www.udemy.com/course/python-sifirdan-ileri-seviyeye/
 # Buffer-Overflow-Notes
 1 -  İlk önce kali üzerinde bulunan <b>generic_send_tcp</b> komutunu kullanarak ve bir spike dosyası oluşturarak, hizmetteki herhangi bir komutta buffer overflow olup olmadığını kontrol edecek  bir istek gönderiyoruz.
 

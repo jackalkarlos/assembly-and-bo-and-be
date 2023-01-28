@@ -38,6 +38,23 @@ Pattern'i 2. adımdaki kod ile gönderiyoruz.  Sunucu çöktükten sonra, Debugg
 
 5 - Test 2 - Bad Chars: Sunucunun okuyamadığı veya engellediği herhangi bir "bad character" olup olmadığını öğrenmek için, ekte paylaştığım kodu kullanıyoruz. Debugger üzerinden ESP'yi dump edip HEX sırasını takip ve kontrol ettiğimizde bir bozulma olmadığına emin olmamız gerekiyor. Bozulma olan karakterler "bad characters" olarak not edilir.
 
+6- Exploit: 
+6.1.: EIP'de bizim enjekte etmeye çalıştığımız shellkoda nasıl yönlendirme yapabiliriz, kodumuzu nasıl yerleştirebiliriz, bunun için bir aratma yapmamız gerekiyor. Bir gerçek hayat senaryosunda birden çok seçenek denememiz gerekebilir. Genelde "JMP ESP" kullanılır.
+
+Kaynak: <a href="https://www.abatchy.com/2017/05/jumping-to-shellcode.html">shellcode jumping</a>
+
+6.1.1: Metasploit içerisinde bulunan nasm_shell.rb ile kodumuzu assembly'e çevirmemiz gerekiyor.
+```
+└─# /usr/share/metasploit-framework/tools/exploit/nasm_shell.rb 
+nasm > JMP ESP
+00000000  FFE4              jmp esp
+nasm > 
+```
+"FFE4" değerini not ediyoruz.
+
+6.1.2: Ben Immunity Debugger kullanmayı tercih ediyorum, Immunity için "Mona" adlı bir plugine ihtiyacımız olacak. Kurduktan ve sunucuyu çalıştırıp "Attach" ettikten sonra, bize kullanılan tüm modülleri ve bu modüllerin okuma/yazma'ya karşı korumalı olup olmadığını göstermesi için ```!mona modules``` komutunu Immunity üzerinden çalıştırıyoruz. 
+
+
 # GDB
 ```
 ● disassemble main - look at the assembly code of the main function

@@ -38,8 +38,8 @@ Pattern'i 2. adımdaki kod ile gönderiyoruz.  Sunucu çöktükten sonra, Debugg
 
 5 - Test 2 - Bad Chars: Sunucunun okuyamadığı veya engellediği herhangi bir "bad character" olup olmadığını öğrenmek için, ekte paylaştığım kodu kullanıyoruz. Debugger üzerinden ESP'yi dump edip HEX sırasını takip ve kontrol ettiğimizde bir bozulma olmadığına emin olmamız gerekiyor. Bozulma olan karakterler "bad characters" olarak not edilir.
 
-6- Exploit: 
-6.1.: EIP'de bizim enjekte etmeye çalıştığımız shellkoda nasıl yönlendirme yapabiliriz, kodumuzu nasıl yerleştirebiliriz, bunun için bir aratma yapmamız gerekiyor. Bir gerçek hayat senaryosunda birden çok seçenek denememiz gerekebilir. Genelde "JMP ESP" kullanılır.
+6- Exploit Plan: 
+6.1.: EIP'de bizim enjekte etmeye çalıştığımız shellkoda nasıl yönlendirme yapabiliriz, kodumuzu nasıl yerleştirebiliriz, bunun için bir aratma yapmamız gerekiyor. Bir gerçek hayat senaryosunda birden çok seçenek denememiz gerekebilir. Genelde "JMP ESP" kullanılır. Atlama yapmaya yarar.
 
 Kaynak: <a href="https://www.abatchy.com/2017/05/jumping-to-shellcode.html">shellcode jumping</a>
 
@@ -54,6 +54,15 @@ nasm >
 
 6.1.2: Ben Immunity Debugger kullanmayı tercih ediyorum, Immunity için "Mona" adlı bir plugine ihtiyacımız olacak. Kurduktan ve sunucuyu çalıştırıp "Attach" ettikten sonra, bize kullanılan tüm modülleri ve bu modüllerin okuma/yazma'ya karşı korumalı olup olmadığını göstermesi için ```!mona modules``` komutunu Immunity üzerinden çalıştırıyoruz. 
 
+Bu kısımda memory write koruması kapalı modüllerden birini seçiyoruz. Bu bizim senaryomuzda "essfunc.dll"
+
+![image](https://user-images.githubusercontent.com/88983987/215236883-8aebe4f1-8e1b-459c-906e-982b449eeace.png)
+
+Bu modül üzerinde yazma koruması yok. Bu modül üzerinde exploit çalıştırabiliriz. Modül içerisinde yazma yapabileceğimiz "JMP ESP" komutunu aratmamız gerekiyor. "nasm_shell" ile dönüştürdüğümüz kodu hex formatına dönüştürüp modül içerisinde aratıyoruz.
+```
+!mona find -s "\xff\xe4" -m essfunc.dll
+```
+"JMP ESP" işlemi çalıştırılan memory adress'leri not alıp tek tek deniyoruz. Bizim senaryomuzda çalışan memory adress: 0x625011AF
 
 # GDB
 ```

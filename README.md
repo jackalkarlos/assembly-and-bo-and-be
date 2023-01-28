@@ -15,8 +15,11 @@ s_string_variable("A");
 generic_send_tcp 10.0.2.15 9999 fuzz.spk 0 0
 ```
 Sunucu çöktükten ve çöktüğüne emin olduktan sonra nerde çökertebildiğimizi bulabilmek için <b>Manual Fuzzing</b> yapmamız gerekmekte.
-1. Adım için paylaştığım kodu düzenleyip çalıştırdıktan sonra sunucu çöktüğünde CTRL+C yapıyoruz. Ve bize "<b>tahminen</b>" nerede çöktüğünü gösteriyor. Değerleri kod içerisinde sürekli 100 ile arttırdığımız için kesin bir yer bulması mümkün değil. Bunun için bir sonraki adımageçiyoruz.
-NOT: Kodların içindeki TRUN örnektir. Her binary ve server için değişkenlik gösterir.
+1. Adım için paylaştığım kodu düzenleyip çalıştırdıktan sonra sunucu çöktüğünde CTRL+C yapıyoruz. Ve bize "<b>tahminen</b>" nerede çöktüğünü gösteriyor. Değerleri kod içerisinde sürekli 100 ile arttırdığımız için kesin bir yer bulması mümkün değil. Bunun için bir sonraki adıma geçiyoruz.
+
+NOT: TRUN'dan sonraki dize paket debugger'de izlenerek bulunmuştur.
+
+NOT: TRUN bu sunucuya özeldir.
 
 2 <b>-/usr/share/metasploit-framework/tools/exploit/pattern_create.rb</b> -> Fuzzing ile kaç karakterde çöktüğünü bulduktan sonra o değere yakın bir değerde pattern üretmek için.
 
@@ -32,6 +35,8 @@ Pattern'i 2. adımdaki kod ile gönderiyoruz.  Sunucu çöktükten sonra, Debugg
 Çıktıdan kaçıncı karakterde çöktüğünün bilgisini alıyoruz.
 
 4 - Test: Paylaştığım kodda, çökerten karakter sayısı kadar "A", ve cidden yazılıp yazılmadığını denemek için 4 adet "B" gönderiyoruz. Hexadecimal üzerinde "42" olarak ifade edilen B değerinin Debugger'da EIP değerine yazıldığını görüyoruz.
+
+5 - Test 2 - Bad Chars: Sunucunun okuyamadığı veya engellediği herhangi bir "bad character" olup olmadığını öğrenmek için, ekte paylaştığım kodu kullanıyoruz. Debugger üzerinden ESP'yi dump edip HEX sırasını takip ve kontrol ettiğimizde bir bozulma olmadığına emin olmamız gerekiyor. Bozulma olan karakterler "bad characters" olarak not edilir.
 
 # GDB
 ```

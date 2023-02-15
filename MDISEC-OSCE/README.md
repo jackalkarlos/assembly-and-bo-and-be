@@ -125,7 +125,7 @@ Benzer bir MOV hareketinin Pseudo C kodu:
 
 ![image](https://user-images.githubusercontent.com/88983987/219170624-f4a716ec-ab28-4cc2-91be-ffb582655420.png)
 
-Parantez içinde belirtilen (örn: mov ecx, [eax]) talimatlar, kaydın kendi değerini değil, kaydın gösterdiği bellek adresi değerini kopyalar.
+Parantez içinde belirtilen (örn: mov ecx, [eax]) talimatlar, kaydın gösterdiği bellek adresi değerini kopyalar.
 
 ![image](https://user-images.githubusercontent.com/88983987/219172777-101d0b17-686d-481f-b38d-4e0370b75be9.png)
 
@@ -142,7 +142,7 @@ Pseduo C:
 ![image](https://user-images.githubusercontent.com/88983987/219174370-65ecf1e0-5764-48a3-9911-b3d4e861b5ec.png)
 
 
-"abi ben anlamadım, bellek adresindeki değer ne demek? diyorsanız:
+"abi ben anlamadım, bellek adresindeki değer ne demek?" diyorsanız:
 
 Assembly dilinde, bazı işlemler bellek adresleri üzerinde gerçekleştirilir. Bu adresler, CPU tarafından okunur veya yazılır.
 

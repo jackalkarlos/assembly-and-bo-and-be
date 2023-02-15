@@ -1,5 +1,5 @@
 ## ASSEMBLY AND BINARY EXPLOITATION
-<h2>Register Nedir?</h2>
+<h2>Register Nedir? GPR (General Purpose Registers)</h2>
 Registerler işlemci çalışması sırasında değişik amaçlar için kullanılan değişkenlerdir. Bellekteki verilere ulaşmak belirli bir zaman gerektirir, fakat registerler işlemci çekirdeğindedir ve fazladan zaman harcanmadan istenen işleme göre içerikleri kullanılabilmektedir.<br><br>
 
 <h2>Register ve Cache Farkı</h2>

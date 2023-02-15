@@ -111,3 +111,10 @@ x86 sistemlerde tek bir instruction ile bu işlemi yapabiliyoruz. Çünkü x86 m
 <b>NOT: INC instructionunda olduğu gibi ADD instructionununda erişim izni vardır.</b>
 
 <b>NOT: DWORD PTR (double word pointer) ifadesi, daha önce paylaştığımız gibi 32 bit (4 byte) bir veri türünü ifade eder. eax kaydı, 32 bit (4 byte) uzunluğundadır ve dword ptr [eax] ifadesi, eax kaydındaki bellek adresindeki 4 byte'lık bir alana işaret eder. Dolayısıyla, inc dword ptr [eax] komutu, eax kaydındaki bellek adresindeki 4 byte'lık alandaki tam sayı değerini 1 artırır.</b>
+
+<h2>Syntax</h2>
+Assembly'de veriler sağdan sola atanır. Aşağıdaki instruction set'inde "AABBCCDDh" değeri 4 bytelik alana sahip olan ECX kaydına yazılmıştır.<br>
+<b>NOT: "mov ecx, eax" talimatı, eax kaydındaki değeri doğrudan ecx kaydına kopyalar, mov ecx, [eax] talimatı ise eax kaydının gösterdiği bellek adresindeki değeri ecx kaydına kopyalar.</b><br>
+
+![image](https://user-images.githubusercontent.com/88983987/219168433-d3bfc301-7f0b-4e5d-8bc6-33c4990d10e0.png)
+

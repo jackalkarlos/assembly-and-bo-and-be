@@ -129,3 +129,12 @@ Parantez içinde belirtilen (örn: mov ecx, [eax]) talimatlar, kaydın kendi de�
 
 ![image](https://user-images.githubusercontent.com/88983987/219172777-101d0b17-686d-481f-b38d-4e0370b75be9.png)
 
+Pseduo C:
+```
+01: *eax = 1;
+02: ecx = *eax;
+03: *eax = ebx;
+04: *(esi+34) = eax;
+05: eax = *(esi+34);
+06: edx = *(ecx+eax);
+```

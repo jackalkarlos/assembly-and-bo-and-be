@@ -3,6 +3,8 @@ x86 CPU mimarisinde sekiz adet 32 bit register bulunur: EAX, EBX, ECX, EDX, EDI,
 
 ![image](https://user-images.githubusercontent.com/88983987/219134608-b2c045f5-efad-4cea-a22c-3fa71f6c03e3.png)
 
+<h1>Register'ları tanıyalım</h1>
+
 <table style="width: 50%;" border="1">
 <tbody>
 <tr style="height: 54px;">

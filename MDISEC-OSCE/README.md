@@ -1,4 +1,17 @@
 ## ASSEMBLY AND BINARY EXPLOITATION
+<h2>Register Nedir?</h2>
+Registerler işlemci çalışması sırasında değişik amaçlar için kullanılan değişkenlerdir. Bellekteki verilere ulaşmak belirli bir zaman gerektirir, fakat registerler işlemci çekirdeğindedir ve fazladan zaman harcanmadan istenen işleme göre içerikleri kullanılabilmektedir.<br><br>
+
+<h2>Register ve Cache Farkı</h2>
+Registerler, CPU'nun kendisinde bulunan küçük hafıza alanlarıdır. CPU cache, ana bellek ve disk arasında bulunan bir bellek hiyerarşisinin bir parçasıdır ve genellikle CPU içinde bulunur. Bu nedenle, registerler ve CPU cache farklı hafıza bölgeleridir.
+
+Registerler, CPU'nun hızlı bir şekilde erişmesi gereken verileri depolamak için kullanılır. Örneğin, işlemci komutlarının ve ara sonuçların geçici olarak saklanması için kullanılır. Registerler, CPU'nun çalışma hızını artırır, ancak kapasiteleri genellikle oldukça sınırlıdır.
+
+Öte yandan, CPU cache, ana bellekten daha hızlı bir hafıza türüdür. CPU cache, ana bellekten daha yavaş olan işlemciye veri aktarımı gerektiğinde sıklıkla kullanılır. CPU cache'in birkaç seviyesi vardır ve her seviye, daha yavaş ancak daha büyük bir bellek kapasitesine sahip olan bir sonraki seviyeye göre daha hızlıdır.
+
+Sonuç olarak, registerler ve CPU cache farklı hafıza bölgeleridir. Registerler, CPU'nun kendisinde yer alırken, CPU cache, genellikle CPU içinde bulunan ve ana bellekten daha hızlı olan bir bellek türüdür.
+
+<h2>x86 CPU Registerler</h2>
 x86 CPU mimarisinde sekiz adet 32 bit register bulunur: EAX, EBX, ECX, EDX, EDI, ESI, EBP ve ESP. Bazıları 8 bitlik ve 16-bitlik kayıtlara bölünebilir. En önemli olanlarından <b>EIP</b>, Code Segment içinde işlenecek bir sonraki komutun yerini işaret eder.
 
 ![image](https://user-images.githubusercontent.com/88983987/219134608-b2c045f5-efad-4cea-a22c-3fa71f6c03e3.png)

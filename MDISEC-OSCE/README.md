@@ -108,3 +108,4 @@ Memory to Memory<br>
 x86 sistemlerde tek bir instruction ile bu işlemi yapabiliyoruz. Çünkü x86 mimaride kullanılabilen INC instructionunun memory'e direkt erişim izni vardır. Direkt memorydeki veri 1 arttırılır.<br>
 ![image](https://user-images.githubusercontent.com/88983987/219164797-f395b605-1673-454a-bc54-80716756ccd5.png)<br>
 
+<b>NOT: INC instructionunda olduğu gibi ADD instructionununda erişim izni vardır.</b>

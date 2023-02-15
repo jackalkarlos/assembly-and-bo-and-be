@@ -116,7 +116,7 @@ x86 sistemlerde tek bir instruction ile bu işlemi yapabiliyoruz. Çünkü x86 m
 MOV instructionu, genelde memoryden veri almak ya da memorye veri göndermek için kullanılır.
 MOV instructionunda, veriler sağdan sola atanır. Aşağıdaki instruction set'inde "AABBCCDDh" değeri 4 bytelik alana sahip olan ECX kaydına yazılmıştır.<br>
 
-<b>NOT: "mov ecx, eax" talimatı, eax kaydındaki değeri doğrudan ecx kaydına kopyalar, mov ecx, [eax] talimatı ise eax kaydının gösterdiği bellek adresindeki değeri ecx kaydına kopyalar.</b><br>
+<b>NOT: "mov ecx, eax" talimatı, eax kaydındaki değeri doğrudan ecx kaydına kopyalar, mov ecx, [eax] talimatı ise eax kaydının gösterdiği bellek adresinde bulunan değeri ecx kaydına kopyalar.</b><br>
 
 ![image](https://user-images.githubusercontent.com/88983987/219168433-d3bfc301-7f0b-4e5d-8bc6-33c4990d10e0.png)
 
@@ -125,7 +125,7 @@ Benzer bir MOV hareketinin Pseudo C kodu:
 
 ![image](https://user-images.githubusercontent.com/88983987/219170624-f4a716ec-ab28-4cc2-91be-ffb582655420.png)
 
-Parantez içinde belirtilen (örn: mov ecx, [eax]) talimatlar, kaydın gösterdiği bellek adresi değerini kopyalar.
+Parantez içinde belirtilen (örn: mov ecx, [eax]) talimatlar, kaydın gösterdiği bellek adresinde bulunan değeri kopyalar.
 
 ![image](https://user-images.githubusercontent.com/88983987/219172777-101d0b17-686d-481f-b38d-4e0370b75be9.png)
 
@@ -139,12 +139,33 @@ Pseduo C:
 06: edx = *(ecx+eax);
 ```
 
+```
+; eax kaydı önceden bir bellek adresi tutuyor
+; ecx, ebx, esi ve edx kayıtları önceden değerleri atanmış olsun
+
+; 01: *eax = 1;
+mov dword ptr [eax], 1
+
+; 02: ecx = *eax;
+mov ecx, [eax]
+
+; 03: *eax = ebx;
+mov [eax], ebx
+
+; 04: *(esi+34) = eax;
+mov dword ptr [esi+34h], eax
+
+; 05: eax = *(esi+34);
+mov eax, [esi+34h]
+
+; 06: edx = *(ecx+eax);
+mov edx, [ecx+eax]
+```
+
 ![image](https://user-images.githubusercontent.com/88983987/219174370-65ecf1e0-5764-48a3-9911-b3d4e861b5ec.png)
 
 
-"abi ben anlamadım, bellek adresindeki değer ne demek?" diyorsanız:
-
-Assembly dilinde, bazı işlemler bellek adresleri üzerinde gerçekleştirilir. Bu adresler, CPU tarafından okunur veya yazılır.
+"abi ben anlamadım, bellek adresi değeri nerden çıktı şimdi?" diyorsanız:
 
 mov ecx, [eax] talimatında, eax kaydı bellek adresi olarak kullanılır. Yani, eax kaydının içeriğindeki değer, bir bellek adresidir ve bu adres CPU tarafından okunur. Daha açıklayıcı olmak için, aşağıdaki örneği ele alalım:
 

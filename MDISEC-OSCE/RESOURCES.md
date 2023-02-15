@@ -15,9 +15,13 @@ https://youtu.be/HD0qJwzWXdQ
 TRYHACKME:
 
 [LEARNING] https://tryhackme.com/jr/introtox8664
+
 [CHALLS - EASY w/ HINTS] https://tryhackme.com/jr/reverseengineering 
+
 [LEARNING] https://tryhackme.com/room/ccradare2
+
 [CHALLS] https://tryhackme.com/room/reverselfiles
+
 
 SHELLCODES:
 

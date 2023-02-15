@@ -115,13 +115,17 @@ x86 sistemlerde tek bir instruction ile bu işlemi yapabiliyoruz. Çünkü x86 m
 <h2>Data Movement</h2>
 MOV instructionu, genelde memoryden veri almak ya da memorye veri göndermek için kullanılır.
 MOV instructionunda, veriler sağdan sola atanır. Aşağıdaki instruction set'inde "AABBCCDDh" değeri 4 bytelik alana sahip olan ECX kaydına yazılmıştır.<br>
+
 <b>NOT: "mov ecx, eax" talimatı, eax kaydındaki değeri doğrudan ecx kaydına kopyalar, mov ecx, [eax] talimatı ise eax kaydının gösterdiği bellek adresindeki değeri ecx kaydına kopyalar.</b><br>
 
 ![image](https://user-images.githubusercontent.com/88983987/219168433-d3bfc301-7f0b-4e5d-8bc6-33c4990d10e0.png)
 
 <br>
-Benzer bir MOV hareketinin C dilindeki hali:
+Benzer bir MOV hareketinin Pseudo C kodu:
 
 ![image](https://user-images.githubusercontent.com/88983987/219170624-f4a716ec-ab28-4cc2-91be-ffb582655420.png)
 
+Parantez içinde belirtilen (örn: mov ecx, [eax]) talimatlar, kaydın kendi değerini değil, kaydın gösterdiği bellek adresindeki değeri kopyalar.
+
+![image](https://user-images.githubusercontent.com/88983987/219172777-101d0b17-686d-481f-b38d-4e0370b75be9.png)
 

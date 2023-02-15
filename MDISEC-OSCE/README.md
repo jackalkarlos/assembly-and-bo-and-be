@@ -95,3 +95,16 @@ Register to Register<br>
 Immediate to Memory<br>
 Register to Memory and Vice Versa<br>
 Memory to Memory<br>
+<br>
+
+İlk instruction örneğimizde, bir veriyi memoryden okuyup, 1 arttırıp, tekrardan memorye yazacağız. ARM sistemler için 3 adet instruction'a ihtiyacımız var.<br>
+
+1- Read the data from memory to a register (LDR). (Memory'den register'a bir veri çekilecek)<br>
+2. Add one to the register (ADD). (Register'a 1 eklenecek)<br>
+3. Write the register to memory (STR). (Tekrardan geri memory'e yazılacak)<br>
+
+![image](https://user-images.githubusercontent.com/88983987/219164649-f738191b-a04f-497d-bc7c-94df7d2a6d46.png)
+<br>
+x86 sistemlerde tek bir instruction ile bu işlemi yapabiliyoruz. Çünkü x86 mimaride kullanılabilen INC instructionunun memory'e direkt erişim izni vardır. Direkt memorydeki veri 1 arttırılır.<br>
+![image](https://user-images.githubusercontent.com/88983987/219164797-f395b605-1673-454a-bc54-80716756ccd5.png)<br>
+

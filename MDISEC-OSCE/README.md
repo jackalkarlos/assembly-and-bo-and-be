@@ -81,3 +81,17 @@ WORDS: Word'ler 16 bitten oluşur.<br>
 DOUBLE WORDS: 32 bitten oluşur. <br>
 Örneğin: EAX, EIP, ESP<br>
 QUAD WORDS: 64 bitten oluşur. 32 bit işlemcilerde kullanıldığında ikiye bölünerek kullanılır. Örneğin: EDX:EAX<br>
+
+<h2>Instruction Sets</h2>
+Bilgisayarın işlem yapabilmesi için kullanabileceği işlem kodlarının (opcode) listesine "Instruction Set" denir. Her bir işlem kodu, bir işlemi temsil eder ve bilgisayarın işlem yapabilmesi için gerekli olan tüm temel işlemler bu listede yer alır.
+
+İşlem kodları, bellek adreslerine, veri girişlerine ve çıkışlarına işaret eden işaretçilerle birlikte kullanılır. Bir bilgisayarın Instruction Set'i, bilgisayarın mimarisine ve kullanılan işlemciye göre değişebilir. Örneğin, x86 mimarili işlemcilerin Instruction Set'i farklıdır ve ARM mimarili işlemcilerin Instruction Set'i de farklıdır.
+
+Programlama dilleri, yüksek seviyeli olarak adlandırılan kodlar yazarak bu işlem kodlarına erişim sağlar. İşlemci, bu işlem kodlarını bellekten okuyarak, belirli bir sırayla işlemleri gerçekleştirir.
+
+5 genel methoda ayrılabilirler:<br>
+Immediate to Register<br>
+Register to Register<br>
+Immediate to Memory<br>
+Register to Memory and Vice Versa<br>
+Memory to Memory<br>

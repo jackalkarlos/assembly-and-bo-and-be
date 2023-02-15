@@ -80,4 +80,4 @@ WORDS: Word'ler 16 bitten oluşur.<br>
 Örneğin: AX, BX, CX<br>
 DOUBLE WORDS: 32 bitten oluşur. <br>
 Örneğin: EAX, EIP, ESP<br>
-QUAD WORDS: 64 bitten oluşur. x86 işlemciler bu yapıya sahip değildir.<br>
+QUAD WORDS: 64 bitten oluşur. 32 bit işlemcilerde kullanıldığında ikiye bölünerek kullanılır. Örneğin: EDX:EAX<br>

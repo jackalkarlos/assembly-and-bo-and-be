@@ -109,3 +109,5 @@ x86 sistemlerde tek bir instruction ile bu işlemi yapabiliyoruz. Çünkü x86 m
 ![image](https://user-images.githubusercontent.com/88983987/219164797-f395b605-1673-454a-bc54-80716756ccd5.png)<br>
 
 <b>NOT: INC instructionunda olduğu gibi ADD instructionununda erişim izni vardır.</b>
+
+<b>NOT: DWORD PTR (double word pointer) ifadesi, daha önce paylaştığımız gibi 32 bit (4 byte) bir veri türünü ifade eder. eax kaydı, 32 bit (4 byte) uzunluğundadır ve dword ptr [eax] ifadesi, eax kaydındaki bellek adresindeki 4 byte'lık bir alana işaret eder. Dolayısıyla, inc dword ptr [eax] komutu, eax kaydındaki bellek adresindeki 4 byte'lık alandaki tam sayı değerini 1 artırır.</b>

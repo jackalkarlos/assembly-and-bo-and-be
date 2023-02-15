@@ -74,7 +74,7 @@ x86 CPU mimarisinde sekiz adet 32 bit register bulunur: EAX, EBX, ECX, EDX, EDI,
 <!-- DivTable.com -->
 
 <h2>Veri Tipleri</h2><br>
-BYTES: Byte'lar, 8 bitten oluşurlar. İlk görselde EAX'ın önce 16 bit olarak AX'a sonrasında, 8 bit olarak AL ve AH'ye bölünebildiğinden bahsetmiştik. AL ve AH 8 bittir. <br>
+BYTES: Byte'lar, 8 bitten oluşurlar. İlk görselde EAX'ın önce 16 bit olarak AX'a, sonrasında 8 bit olarak AL ve AH'ye bölünebildiğinden bahsetmiştik. AL ve AH 8 bittir. <br>
 Örneğin: AL, BL, CL<br>
 WORDS: Word'ler 16 bitten oluşur.<br>
 Örneğin: AX, BX, CX<br>

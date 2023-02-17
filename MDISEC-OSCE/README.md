@@ -241,17 +241,6 @@ Daha sonrasında, DeferredContext içerisinde ve 0x010 adresinde bulunan veri ea
 06: 89 41 10 mov [ecx+10h], eax ; ecx artik 0x123
 ```
 
-Pseudo C kodu:
-```
-Pseudo C
-KDPC *p = ...;
-p->DpcData = NULL;
-p->DeferredRoutine = ...;
-*(int *)p = 0x113;
-p->DeferredContext = ...;
-```
-
-
 
 
 

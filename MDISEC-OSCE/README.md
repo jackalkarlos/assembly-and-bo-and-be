@@ -176,3 +176,83 @@ mov ecx, [eax]      ; 0x1000 bellek adresindeki değer ecx kaydına kopyalanır
 İlk satırda, eax kaydına 0x1000 değeri yüklenir. İkinci satırda, mov ecx, [eax] talimatı, eax kaydının gösterdiği 0x1000 bellek adresindeki değeri ecx kaydına kopyalar. Yani, ikinci satırın çalışması sırasında, CPU 0x1000 bellek adresine bakar, o adresteki değeri okur ve ecx kaydına kopyalar.
 
 Bu nedenle, mov ecx, [eax] talimatı, eax kaydının içeriğindeki değeri bellek adresi olarak kullanarak bellekteki bir değeri okur ve bu değeri ecx kaydına kopyalar.
+
+<h2> DPC Nedir? </h2>
+
+DPC, "Deferred Procedure Call" kısaltmasıdır ve Windows işletim sistemi çekirdeğinde, özellikle donanım kesintileri sırasında görevleri sıralamak ve önceliklendirmek için kullanılan bir mekanizmadır.
+
+Bir DPC, kesinti işlemi tamamlandıktan sonra bir iş parçasının işletim sistemi çekirdeğinde sıralanmasını sağlar. Bu iş parçası genellikle bir işlemci zamanlayıcısından veya bir donanım kesintisinden kaynaklanır. DPC'ler, kesinti hizmet rutinlerinin işlemi tamamlaması ve daha sonra daha uzun süreli işlemleri planlaması için kullanılır.
+
+DPC'ler, işletim sistemi çekirdeğinde iş yükünü azaltmak ve daha fazla iş parçasını sıralamak için kullanılan önemli bir araçtır. İşletim sistemi çekirdeği, DPC'leri sıralamak için bir DPC nesnesi kullanır ve bu nesne genellikle _KDPC yapısı olarak temsil edilir.
+
+<h2> Struct Yapısı </h2>
+Örnek bir Struct yapısı:
+```
+kd> dt nt!_KDPC
++0x000 Type : UChar
++0x001 Importance : UChar
++0x002 Number : Uint2B
++0x004 DpcListEntry : _LIST_ENTRY
++0x00c DeferredRoutine : Ptr32 void
++0x010 DeferredContext : Ptr32 Void
++0x014 SystemArgument1 : Ptr32 Void
++0x018 SystemArgument2 : Ptr32 Void
++0x01c DpcData : Ptr32 Void
+```
+Bu Struct yapısının Assembly içerisinde nasıl işlendiğini anlayabilmek için dikkat etmemiz gereken bir kaç nokta var. Sol tarafta duran offset değerleri (örn: 0x000), bize bu verilerin hangi adreste saklandığını söylüyor. Eğer bu veriye sahip olmasaydık internetten ufak bir araştırma ile bulabilirdik. 
+<a href="https://www.geoffchappell.com/studies/windows/km/ntoskrnl/inc/ntos/ntosdef_x/kdpc.htm">Geooffchappel KPDC Kernel Struct</a>
+
+```
+Assembly
+01: 8B 45 0C mov eax, [ebp+0Ch]
+02: 83 61 1C 00 and dword ptr [ecx+1Ch], 0
+03: 89 41 0C mov [ecx+0Ch], eax
+04: 8B 45 10 mov eax, [ebp+10h]
+05: C7 01 13 01 00+ mov dword ptr [ecx], 113h
+06: 89 41 10 mov [ecx+10h], eax
+```
+Bu kodda, başlangıçta basepointer bellek adresine 0C değeri ekleniyor ve sonuç olarak alınan bellek adresinin işaret ettiği bölgedeki veriler, eax register'ine atama (kopyalama da denilebilir, 0x0c adresinde duran veri değişmiyor.) yapılıyor. Bu bizim DeferredRuotine verimiz oluyor.
+```
+01: 8B 45 0C mov eax, [ebp+0Ch]
++0x00c DeferredRoutine : Ptr32 void
+```
+Ardından, loop count dışında Next ve Previous işaretçisi olarak kullanılabilen ecx register'ine 1C ekleniyor ve işaret ettiği memory adresinde bulunan veri and operatörü ile sıfırlanıyor. Yani DpcData'nın içini sıfırlamış oluyoruz.
+```
+02: 83 61 1C 00 and dword ptr [ecx+1Ch], 0
++0x01c DpcData : Ptr32 Void
+```
+Sonrasında, ilk adımda "[ebp+0Ch]" adresinden alıp eax'a kopyaladığımız veriyi, tekrardan aynı yere kopyalıyoruz. Yani 1. ve 3. satırın işlenmesi sonucunda DPC yapısında herhangi bir değişiklik olmamış oluyor. 
+```
+03: 89 41 0C mov [ecx+0Ch], eax
++0x00c DeferredRoutine : Ptr32 void
+```
+Daha sonrasında, DeferredContext içerisinde ve 0x010 adresinde bulunan veri eax register'ine atanıyor
+```
+04: 8B 45 10 mov eax, [ebp+10h]
++0x010 DeferredContext : Ptr32 Void
+```
+5. satırda ise, ecx registeri değiştirilerek 0x113 adresi yazılır. Yani ecx = 0x113 olmuş olur.
+```
+05: C7 01 13 01 00+ mov dword ptr [ecx], 113h
+```
+6. satırda, dikkat edilmesi gereken nokta. ecx adresi artık 0x113'dür. Yani ona 0x10 eklendiği takdirde bu adres 0x123 olacak, ve eax'ın bu adrese kopyalanması struct yapısında herhangi bir değişiklik yapmayacaktır. 
+```
+06: 89 41 10 mov [ecx+10h], eax ; ecx artik 0x123
+```
+
+Pseudo C kodu:
+```
+Pseudo C
+KDPC *p = ...;
+p->DpcData = NULL;
+p->DeferredRoutine = ...;
+*(int *)p = 0x113;
+p->DeferredContext = ...;
+```
+
+
+
+
+
+
+

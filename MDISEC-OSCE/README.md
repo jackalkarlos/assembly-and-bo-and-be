@@ -187,6 +187,7 @@ DPC'ler, işletim sistemi çekirdeğinde iş yükünü azaltmak ve daha fazla i�
 
 <h2> Struct Yapısı </h2>
 Örnek bir Struct yapısı:
+
 ```
 kd> dt nt!_KDPC
 +0x000 Type : UChar
@@ -199,11 +200,11 @@ kd> dt nt!_KDPC
 +0x018 SystemArgument2 : Ptr32 Void
 +0x01c DpcData : Ptr32 Void
 ```
-Bu Struct yapısının Assembly içerisinde nasıl işlendiğini anlayabilmek için dikkat etmemiz gereken bir kaç nokta var. Sol tarafta duran offset değerleri (örn: 0x000), bize bu verilerin hangi adreste saklandığını söylüyor. Eğer bu veriye sahip olmasaydık internetten ufak bir araştırma ile bulabilirdik. 
-<a href="https://www.geoffchappell.com/studies/windows/km/ntoskrnl/inc/ntos/ntosdef_x/kdpc.htm">Geooffchappel KPDC Kernel Struct</a>
 
+Bu Struct yapısının Assembly içerisinde nasıl işlendiğini anlayabilmek için dikkat etmemiz gereken bir kaç nokta var. Sol tarafta duran offset değerleri (örn: 0x000), bize bu verilerin hangi adreste saklandığını söylüyor. Eğer bu veriye sahip olmasaydık internetten ufak bir araştırma ile bulabilirdik. 
+<a href="https://www.geoffchappell.com/studies/windows/km/ntoskrnl/inc/ntos/ntosdef_x/kdpc.htm">Geooffchappel KPDC Kernel Struct</a><br>
+Assembly Kodu:
 ```
-Assembly
 01: 8B 45 0C mov eax, [ebp+0Ch]
 02: 83 61 1C 00 and dword ptr [ecx+1Ch], 0
 03: 89 41 0C mov [ecx+0Ch], eax
@@ -211,7 +212,7 @@ Assembly
 05: C7 01 13 01 00+ mov dword ptr [ecx], 113h
 06: 89 41 10 mov [ecx+10h], eax
 ```
-Bu kodda, başlangıçta basepointer bellek adresine 0C değeri ekleniyor ve sonuç olarak alınan bellek adresinin işaret ettiği bölgedeki veriler, eax register'ine atama (kopyalama da denilebilir, 0x0c adresinde duran veri değişmiyor.) yapılıyor. Bu bizim DeferredRuotine verimiz oluyor.
+Bu kodda, başlangıçta basepointer bellek adresine 0C değeri ekleniyor ve sonuç olarak alınan bellek adresinin işaret ettiği bölgedeki veriler, eax register'ine atama (kopyalama da denilebilir, 0x0c adresinde duran veri değişmiyor.) yapılıyor. Basepointer değerini 0x000 olarak alırsak, 0x000+0C = 0x0C. Bu da bizim DeferredRuotine verimiz oluyor.
 ```
 01: 8B 45 0C mov eax, [ebp+0Ch]
 +0x00c DeferredRoutine : Ptr32 void

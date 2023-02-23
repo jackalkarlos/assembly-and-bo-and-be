@@ -1,3 +1,5 @@
+Not: Her kaynaktan olabildiğince yararlanıp konuyu kendi anladığım kadarıyla açıklamaya çalıştım. Hatalı olduğum kısımlar için sosyal medya üzerinden ulaşabilirsiniz.
+
 MDISEC:
 
 https://github.com/mdisec/osce-preparation

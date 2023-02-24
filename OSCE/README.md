@@ -234,10 +234,12 @@ Daha sonrasında, DeferredContext içerisinde ve 0x010 adresinde bulunan veri ea
 ```
 İşler bu aşamada biraz karışıyor.. [ecx] bellek adresinin işaret ettiği ilk 4 bytelik alana (dowrd ptr dolayısıyla 4 byte) 113h değeri yazılıyor. İlk 4 bytelik alan Type değerine işaret ediyor. Bu aşamada verinin tipi değiştirilmiş oluyor.
 
-Eğer ecx adresindeki sonraki 4 byte'lık alanı (Importance alanı) değiştirmek isteseydik, örneğin 226h değeriyle değiştirmek isteseydik, şu şekilde bir kod kullanabilirdik: mov dword ptr [ecx+1], 226h
+Eğer ecx adresindeki sonraki 4 byte'lık alanı (Importance alanı) değiştirmek isteseydik, şu şekilde bir kod kullanabilirdik: mov dword ptr [ecx+1], 113h
 ```
 05: C7 01 13 01 00+ mov dword ptr [ecx], 113h
 ```
+
+
 
 
 

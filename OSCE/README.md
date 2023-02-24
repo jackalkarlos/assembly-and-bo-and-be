@@ -232,14 +232,6 @@ Daha sonrasında, DeferredContext içerisinde ve 0x010 adresinde bulunan veri ea
 04: 8B 45 10 mov eax, [ebp+10h]
 +0x010 DeferredContext : Ptr32 Void
 ```
-5. satırda ise, ecx registeri değiştirilerek 0x113 adresi yazılır. Yani ecx = 0x113 olmuş olur.
-```
-05: C7 01 13 01 00+ mov dword ptr [ecx], 113h
-```
-6. satırda, dikkat edilmesi gereken nokta. ecx adresi artık 0x113'dür. Yani ona 0x10 eklendiği takdirde bu adres 0x123 olacak, ve eax'ın bu adrese kopyalanması struct yapısında herhangi bir değişiklik yapmayacaktır. 
-```
-06: 89 41 10 mov [ecx+10h], eax ; ecx artik 0x123
-```
 
 
 

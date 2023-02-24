@@ -212,7 +212,7 @@ Assembly Kodu:
 05: C7 01 13 01 00+ mov dword ptr [ecx], 113h
 06: 89 41 10 mov [ecx+10h], eax
 ```
-Bu kodda, başlangıçta basepointer bellek adresine 0C değeri ekleniyor ve sonuç olarak alınan bellek adresinin işaret ettiği bölgedeki veriler, eax register'ine atama (kopyalama da denilebilir, 0x0c adresinde duran veri değişmiyor.) yapılıyor. Basepointer değerini 0x000 olarak alırsak, 0x000+0C = 0x0C. Bu da bizim DeferredRuotine verimiz oluyor.
+Bu kodda, başlangıçta basepointer bellek adresine 0C değeri ekleniyor ve sonuç olarak alınan bellek adresinin işaret ettiği bölgedeki veriler, eax register'ine atama (kopyalama da denilebilir, 0x0c adresinde duran veri değişmiyor.) yapılıyor. Basepointer değerini 0x000 olarak alırsak, 0x000+0C = 0x0C. Bu da bizim DeferredRuotine verimiz oluyor. Yani, DeferredRoutine verisinin bulunduğu bellek alanındaki veriler eax'a kopyalanıyor.
 ```
 01: 8B 45 0C mov eax, [ebp+0Ch]
 +0x00c DeferredRoutine : Ptr32 void
@@ -232,7 +232,12 @@ Daha sonrasında, DeferredContext içerisinde ve 0x010 adresinde bulunan veri ea
 04: 8B 45 10 mov eax, [ebp+10h]
 +0x010 DeferredContext : Ptr32 Void
 ```
+İşler bu aşamada biraz karışıyor.. [ecx] bellek adresinin işaret ettiği ilk 4 bytelik alana (dowrd ptr dolayısıyla 4 byte) 113h değeri yazılıyor. İlk 4 bytelik alan Type değerine işaret ediyor. Bu aşamada verinin tipi değiştirilmiş oluyor.
 
+Eğer ecx adresindeki sonraki 4 byte'lık alanı (Importance alanı) değiştirmek isteseydik, örneğin 226h değeriyle değiştirmek isteseydik, şu şekilde bir kod kullanabilirdik: mov dword ptr [ecx+1], 226h
+```
+05: C7 01 13 01 00+ mov dword ptr [ecx], 113h
+```
 
 
 

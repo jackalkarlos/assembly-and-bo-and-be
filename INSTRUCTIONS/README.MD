@@ -47,7 +47,7 @@ jle ohnobabeijumped ; Eğer eax, ebx'den küçük veya eşitse atlama yap. Eşit
 mov eax, 15
 mov ebx, 10
 cmp eax, ebx
-jg areyoujumpingdaddy ; Eğer eax, ebx'den büyükse atlama yap
+jg areyoujumpingdaddy ; Eğer eax, ebx'den büyükse atlama yap. Büyük olduğu için atlama gerçekleşecektir.
 ```
 
 ## jge -> Asıl değer karşılaştırılan değerden küçükse veya eşitse atlama yapar.
@@ -55,7 +55,7 @@ jg areyoujumpingdaddy ; Eğer eax, ebx'den büyükse atlama yap
 mov eax, 10
 mov ebx, 10
 cmp eax, ebx
-jge becareful ; Eğer eax, ebx'den büyükse veya eşitse atlama yap
+jge becareful ; Eğer eax, ebx'den büyükse veya eşitse atlama yap. Eşit olduğu için atlama gerçekleşecektir.
 ```
 
 ## je, jz -> Her iki instructionda eğer değerler eşitse atlama yapar.
@@ -63,16 +63,26 @@ jge becareful ; Eğer eax, ebx'den büyükse veya eşitse atlama yap
 mov eax, 10
 mov ebx, 10
 cmp eax, ebx
-je okokok ; Eğer eax, ebx eşitse atlama yap
+je okokok ; Eğer eax, ebx eşitse atlama yap. Eşit olduğu için atlama gerçekleşecektir.
 ```
 ```
 mov eax, 10
 mov ebx, 10
 cmp eax, ebx
-jz okokok ; Eğer eax, ebx eşitse atlama yap
+jz okokok ; Eğer eax, ebx eşitse atlama yap. Eşit olduğu için atlama gerçekleşecektir.
 ```
-jo -> overflow varsa
-jno -> overflow yoksa
+## jo -> Eğer overflow varsa atlama yap.
+```
+mov eax, 2
+add eax, 2147483647
+jo wtfdaddyareuoverflowing ; Integer overflow meydana geldiği için atlama gerçekleşecektir.
+```
+## jno -> Overflow yoksa atlama yap.
+```
+mov eax, 1
+add eax, 2
+jno label ; Overflow olmadığı için atlama gerçekleşecektir.
+```
 Jump if Carry (jc): Taşıma (carry) durumu olduğunda atlama yapar.
 Jump if No Carry (jnc): Taşıma (carry) durumu olmadığında atlama yapar.
 Jump if Sign (js): İşaret (negative) durumu olduğunda atlama yapar.

@@ -3,35 +3,35 @@
 mov eax, "I will print it"
 push eax
 ```
-mov -> Veri Kopyalama.
-
+## mov -> Veri Kopyalama.
+```
 mov eax, "Move me!"; move me stringi eax'a taşındı
 mov ebx, eax; eax içindeki değer ebx'e taşındı
-
-cmp -> Karşılaştırma (boolean)
-
+```
+## cmp -> Karşılaştırma (boolean)
+```
 mov eax, 1
 mov ebx, 1
 cmp eax, ebx; true
-
-add -> Ekleme.
-
+```
+## add -> Ekleme.
+```
 mov eax, 1
 add eax, 1
 add eax, 1; eax artık 3
-
-sub -> Çıkarma.
-
+```
+## sub -> Çıkarma.
+```
 mov eax, 1
 sub eax, 1; eax artık 0
-
-jl -> Asıl değer karşılaştırılan değerden küçükse atlama yapar.
-
+```
+## jl -> Asıl değer karşılaştırılan değerden küçükse atlama yapar.
+```
 mov eax, 5
 mov ebx, 10
 cmp eax, ebx
 jl jumpmebabe ; Eğer eax, ebx'den küçükse atlama yap
-
+```
 
 jle -> küçük eşit
 jg -> büyüktür

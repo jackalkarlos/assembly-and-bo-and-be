@@ -83,9 +83,7 @@ mov eax, 1
 add eax, 2
 jno label ; Overflow olmadığı için atlama gerçekleşecektir.
 ```
-Jump if Carry (jc): Taşıma (carry) durumu olduğunda atlama yapar.
-Jump if No Carry (jnc): Taşıma (carry) durumu olmadığında atlama yapar.
 Jump if Sign (js): İşaret (negative) durumu olduğunda atlama yapar.
 Jump if No Sign (jns): İşaret (negative) durumu olmadığında atlama yapar.
-Jump if Parity (jp veya jpe): Çiftlik (parity) durumu olduğunda atlama yapar.
+Jump if Parity (jp veya jpe): Çiftlik (parity) durumu olduğunda atlama yapar. Parity (çiftlik) durumu, bir değerin binary (ikili) formundaki 1'lerin toplamının çift mi yoksa tek mi olduğunu kontrol eder.
 Jump if No Parity (jnp veya jpo): Çiftlik (parity) durumu olmadığında atlama yapar.

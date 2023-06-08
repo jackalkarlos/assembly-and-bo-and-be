@@ -30,13 +30,47 @@ sub eax, 1; eax artık 0
 mov eax, 5
 mov ebx, 10
 cmp eax, ebx
-jl jumpmebabe ; Eğer eax, ebx'den küçükse atlama yap
+jl jumpmebabe ; Eğer eax, ebx'den küçükse atlama yap. Küçük olduğu için atlama gerçekleşecektir.
 ```
 
-jle -> küçük eşit
-jg -> büyüktür
-jge -> büyük eşit
-je ve jz -> eşitse
+## jle -> Asıl değer karşılaştırılan değerden küçükse veya eşitse atlama yapar.
+
+```
+mov eax, 10
+mov ebx, 10
+cmp eax, ebx
+jle ohnobabeijumped ; Eğer eax, ebx'den küçük veya eşitse atlama yap. Eşit olduğu için atlama gerçekleşecektir.
+```
+
+## jg ->  Asıl değer karşılaştırılan değerden büyükse atlama yapar.
+```
+mov eax, 15
+mov ebx, 10
+cmp eax, ebx
+jg areyoujumpingdaddy ; Eğer eax, ebx'den büyükse atlama yap
+```
+
+## jge -> Asıl değer karşılaştırılan değerden küçükse veya eşitse atlama yapar.
+```
+mov eax, 10
+mov ebx, 10
+cmp eax, ebx
+jge becareful ; Eğer eax, ebx'den büyükse veya eşitse atlama yap
+```
+
+## je, jz -> Her iki instructionda eğer değerler eşitse atlama yapar.
+```
+mov eax, 10
+mov ebx, 10
+cmp eax, ebx
+je okokok ; Eğer eax, ebx eşitse atlama yap
+```
+```
+mov eax, 10
+mov ebx, 10
+cmp eax, ebx
+jz okokok ; Eğer eax, ebx eşitse atlama yap
+```
 jo -> overflow varsa
 jno -> overflow yoksa
 Jump if Carry (jc): Taşıma (carry) durumu olduğunda atlama yapar.

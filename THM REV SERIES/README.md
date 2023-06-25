@@ -101,8 +101,10 @@ Data positions are referenced by how far away they are from the address of the f
 NOT (Shown as "!")
 The NOT operation will simply flip the bit.
 
+```
 NOT 1 = 0
 NOT 0 = 1
+```
 
 ![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/817817fd-0e60-49b9-b732-14385e90075c)
 
@@ -110,9 +112,11 @@ AND (Shown as "&")
 
 AND will check if both bits are 1 and if they are the result will be 1, otherwise, the result is 0.
 
+```
 1 AND 1 = 1
 1 AND 0 = 0
 0 AND 0 = 0
+```
 
 ![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/a87dc529-557c-438a-94ed-0a481616bb34)
 
@@ -120,9 +124,11 @@ OR (Shown as "|")
 
 OR will check if one of the bits is one and if so, then the result is 1, otherwise, the result is 0.
 
+```
 1 OR 1 = 1
 1 OR 0 = 1
 0 OR 0 = 0
+```
 
 ![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/75e55ca6-c6d3-4c9b-baff-1099bb804295)
 
@@ -130,9 +136,11 @@ XOR (Shown as "^")
 
 The result is 1 if either of the bits is one, but not both, otherwise, the result is 0. Another way to think of XOR is it's checking if the bits are different.
 
+```
 1 XOR 1 = 0
 1 XOR 0 = 1
 0 XOR 0 = 0
+```
 
 ![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/d9f1fe63-0763-4843-a3c2-ce08fece1392)
 

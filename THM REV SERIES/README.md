@@ -83,13 +83,60 @@ Signed Int
 `64-bit is -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.`
 
 
-Unsigned Int - Minimum is zero, maximum is twice that of a signed int (of the same size). For example: unsigned 32-bit int goes from 0 to 4,294,967,295. That is twice the signed int maximum of 2,147,483,647, however, its minimum value is 0. This is due to signed integers using the sign bit, making it unavailable to represent a value.
+Unsigned Int - 
 
-Bool - 1 byte. Interestingly, a bool only needs 1 bit because it's either 1 or 0 but it still takes up a full byte. This is because computers don't tend to work with individual bits due to alignment (talked about later). So instead, they work in chunks such as 1 byte, 2 bytes, 4 bytes, 8 bytes, and so on.
+Minimum is zero, maximum is twice that of a signed int (of the same size). For example: unsigned 32-bit int goes from 0 to 4,294,967,295. That is twice the signed int maximum of 2,147,483,647, however, its minimum value is 0. This is due to signed integers using the sign bit, making it unavailable to represent a value.
+
+Bool - 1 byte. 
+
+Interestingly, a bool only needs 1 bit because it's either 1 or 0 but it still takes up a full byte. This is because computers don't tend to work with individual bits due to alignment (talked about later). So instead, they work in chunks such as 1 byte, 2 bytes, 4 bytes, 8 bytes, and so on.
 For more data types go here: https://www.tutorialspoint.com/cprogramming/c_data_types.htm
 
 Offsets
 Data positions are referenced by how far away they are from the address of the first byte of data, known as the base address (or just the address), of the variable. The distance a piece of data is from its base address is considered the offset. For example, let's say we have some data, 12345678. Just to push the point, let's also say each number is 2 bytes. With this information, 1 is at offset 0x0, 2 is at offset 0x2, 3 is at offset 0x4, 4 is at offset 0x6, and so on. You could reference these values with the format BaseAddress+0x##. BaseAddress+0x0 or just BaseAddress would contain the 1, BaseAddress+0x2 would be the 2, and so on.
+
+
+# Binary Operations
+
+NOT (Shown as "!")
+The NOT operation will simply flip the bit.
+
+NOT 1 = 0
+NOT 0 = 1
+
+![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/817817fd-0e60-49b9-b732-14385e90075c)
+
+AND (Shown as "&")
+
+AND will check if both bits are 1 and if they are the result will be 1, otherwise, the result is 0.
+
+1 AND 1 = 1
+1 AND 0 = 0
+0 AND 0 = 0
+
+![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/a87dc529-557c-438a-94ed-0a481616bb34)
+
+OR (Shown as "|")
+
+OR will check if one of the bits is one and if so, then the result is 1, otherwise, the result is 0.
+
+1 OR 1 = 1
+1 OR 0 = 1
+0 OR 0 = 0
+
+![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/75e55ca6-c6d3-4c9b-baff-1099bb804295)
+
+XOR (Shown as "^")
+
+The result is 1 if either of the bits is one, but not both, otherwise, the result is 0. Another way to think of XOR is it's checking if the bits are different.
+
+1 XOR 1 = 0
+1 XOR 0 = 1
+0 XOR 0 = 0
+
+![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/d9f1fe63-0763-4843-a3c2-ce08fece1392)
+
+
 
 
 

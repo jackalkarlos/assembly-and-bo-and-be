@@ -26,6 +26,28 @@ What about base 2? Base 2 includes 0 and 1. It works the same as the others. Her
 ```
 ![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/ed0e28f7-cc15-4187-b2d7-ef2e2a241b54)
 
+## Hexadecimal:
+```
+Hexa = 6, Dec = 10. Hexadecimal is base 16. Hexadecimal is very similar but can be a little confusing for some people. You see, we only have ten different individual numbers (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). Hexadecimal needs 16 different numbers. You could use 0, 1... 11, 12, 13... but that would be extremely confusing. For example, what is 1432? Is that 1,4,3,2 or 14,3,2? When we need to represent anything above 9 we can instead use letters such as A, B, C, D, E, and F in the case of hexadecimal.
+
+A = 10, B = 11, ..., F = 15
+
+Hexadecimal numbers are usually given a "0x" prefix or the suffix "h" such as 0xFF or FFh.
+
+0x4A = (161 * 4d) + (160 * 10d) = 64d + 10d = 74d.
+```
+Learn more hexadecimal here:
+
+https://www.khanacademy.org/math/algebra-home/alg-intro-to-algebra/algebra-alternate-number-bases/v/hexadecimal-number-system
+
+Prefixes and Suffixes:
+To distinguish between different number systems, we use prefixes or suffixes. There are many things used to distinguish between the number systems, I will only show the most common.
+
+Decimal is represented with the suffix "d" or with nothing. Examples: 12d or 12.
+Hexadecimal is represented with the prefix "0x" or suffix "h". Examples: 0x12 or 12h. Another way hexadecimal is represented is with the prefix of "\x". However, this is typically used per byte. Two hexadecimal digits make one byte. Examples: \x12 or \x12\x45\x21. If bits and bytes seem a little weird we'll get into them soon so don't worry.
+Binary is represented with a suffix "b" or with padding of zeros at the start. Examples: 100101b or 00100101. The padding at the start is often used because a decimal number can't start with a zero.
+
+
 
 
 

@@ -2,16 +2,21 @@
 
 ## Base 10:
 
-```We mortal humans use the decimal (base 10) system.
-Base 10 includes 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.
-Here is 243 in base 10:
+
+Biz ölümlü insanlar olarak Base10 sistemini kullanıyoruz. Aşağıda 243 sayısının base10'a dönüştürme işlemi bulunmakta.
+
+```
+Base 10 şu sayıları içerir -> 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.
+243 sayısının Base10'a dönüştürülme işlemi:
 243 = (102 * 2) + (101 * 4) + (100 * 3) = 200 + 40 + 3.
 ```
 
-If decimal is denoted, it will usually be with the suffix of "d" such as 12d.
+Eğer ondalık ifade belirtiliyorsa genellikle "d" eki ile gösterilir, örneğin 12d.
 
 ## Base 7:
-```We can apply this to any base. For example, 243 in base 7:
+
+Bu base dönüştürme sapıklığını herhangi bir sayıya uygulayabiliriz. Aşağıda base 7 işlemi bulunuyor.
+```
 243(in base 7) = (72 * 2) + (71 * 4) + (70 * 3) = 98 + 28 + 3 = 129(in decimal).
 
 Base 7 includes 0, 1, 2, 3, 4, 5, 6.
@@ -43,10 +48,15 @@ https://www.khanacademy.org/math/algebra-home/alg-intro-to-algebra/algebra-alter
 Prefixes and Suffixes:
 To distinguish between different number systems, we use prefixes or suffixes. There are many things used to distinguish between the number systems, I will only show the most common.
 
-Decimal is represented with the suffix "d" or with nothing. Examples: 12d or 12.
-Hexadecimal is represented with the prefix "0x" or suffix "h". Examples: 0x12 or 12h. Another way hexadecimal is represented is with the prefix of "\x". However, this is typically used per byte. Two hexadecimal digits make one byte. Examples: \x12 or \x12\x45\x21. If bits and bytes seem a little weird we'll get into them soon so don't worry.
-Binary is represented with a suffix "b" or with padding of zeros at the start. Examples: 100101b or 00100101. The padding at the start is often used because a decimal number can't start with a zero.
+Ondalık sayılar "d" ekiyle veya eki olmadan temsil edilir. Örnekler: 12d veya 12.
 
+Hexadecimal is represented with the prefix "0x" or suffix "h". Examples: 0x12 or 12h. 
+
+Another way hexadecimal is represented is with the prefix of "\x". However, this is typically used per byte. Two hexadecimal digits make one byte. Examples: \x12 or \x12\x45\x21. 
+
+If bits and bytes seem a little weird we'll get into them soon so don't worry.
+
+Binary is represented with a suffix "b" or with padding of zeros at the start. Examples: 100101b or 00100101. The padding at the start is often used because a decimal number can't start with a zero.
 
 
 # Data Type And Size
@@ -161,6 +171,17 @@ How it works in ASM:
 4. call func1
 5. finish
 ```
+
+# 64 Bit Registers
+
+RAX - Known as the accumulator register. Often used to store the return value of a function.
+RBX - Sometimes known as the base register, not to be confused with the base pointer. Sometimes used as a base pointer for memory access.
+RDX - Sometimes known as the data register.
+RCX - Sometimes known as the counter register. Used as a loop counter.
+RSI - Known as the source index. Used as the source pointer in string operations.
+RDI - Known as the destination index. Used as the destination pointer in string operations.
+RSP - The stack pointer. Holds the address of the top of the stack.
+RBP - The base pointer. Holds the address of the base (bottom) of the stack.
 
 
 

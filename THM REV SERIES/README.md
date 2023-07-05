@@ -174,15 +174,23 @@ How it works in ASM:
 
 # 64 Bit Registers
 
-RAX - Known as the accumulator register. Often used to store the return value of a function.
-RBX - Sometimes known as the base register, not to be confused with the base pointer. Sometimes used as a base pointer for memory access.
-RDX - Sometimes known as the data register.
-RCX - Sometimes known as the counter register. Used as a loop counter.
-RSI - Known as the source index. Used as the source pointer in string operations.
-RDI - Known as the destination index. Used as the destination pointer in string operations.
-RSP - The stack pointer. Holds the address of the top of the stack.
-RBP - The base pointer. Holds the address of the base (bottom) of the stack.
+RAX - Mantık biriminin (ALU) sonuçlarını tutar. Aritmetik ve mantıksal olarak hesaplanması gereken işlemler hesaplandıktan sonra bu değişkene kaydedilir. Karşılaştırma, çıkarma, toplama gibi işlemler için kullanılabilir. Bir fonksiyonun dönüş değerini belirlemek için de kullanılabilir. Dönüş değerleri RAX içinde tutulabilir.
 
+RBX - RBX kaydedici, bellek adreslerini tutmak için kullanılan bir kaydedicidir. Ancak RBX, tüm bellek adreslerini tutmaz, yalnızca pointerların (işaretçilerin) bellek adreslerini tutar. Base Pointer ile karıştırılmamalıdır. Ancak bazı zamanlar Base Pointer olarak kullanılabilir.
+
+RDX - Genelde veri işleme operasyonlarında kullanılan basit bir data registeridir.
+
+RCX - Sayaç görevi yapar. Döngü sayacı olarak kullanılır.
+
+RSI - String manipülasyonu işlemlerinde stringin hafıza adresinin başlangıç değerini tutar.
+
+RDI - String manipülasyonu işlemlerinde stringin hafıza adresinin bitiş değerini tutar.
+
+RSP - Yığın işaretçisidir. Bir yığının en üstündeki adresi tutar.
+
+RBP - Yığın işaretçisidir. Bir yığının en altındaki adresi tutar.
+
+RIP - Bir sonraki çalıştırılacak fonksiyonun ya da instruction'un adresini tutar. En çok manipüleye açık değişkenlerden biridir.
 
 
 

@@ -194,4 +194,5 @@ RIP - Bir sonraki çalıştırılacak fonksiyonun ya da instruction'un adresini 
 
 
 
+![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/681af818-2503-4f6a-8899-23635b6f9f43)
 

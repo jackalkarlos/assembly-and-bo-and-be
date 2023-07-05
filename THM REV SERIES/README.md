@@ -192,7 +192,6 @@ RBP - Yığın işaretçisidir. Bir yığının en altındaki adresi tutar.
 
 RIP - Bir sonraki çalıştırılacak fonksiyonun ya da instruction'un adresini tutar. En çok manipüleye açık değişkenlerden biridir.
 
-
-
 ![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/681af818-2503-4f6a-8899-23635b6f9f43)
 
+If `0x0123456789ABCDEF` was loaded into a 64-bit register such as RAX, then RAX refers to `0x0123456789ABCDEF`, EAX refers to `0x89ABCDEF`, AX refers to `0xCDEF`, AH refers to `0xCD`, AL refers to `0xEF`.

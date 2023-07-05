@@ -145,6 +145,24 @@ The result is 1 if either of the bits is one, but not both, otherwise, the resul
 ![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/d9f1fe63-0763-4843-a3c2-ce08fece1392)
 
 
+# Same code in C and ASM
+
+![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/04e9909e-6ef2-4820-a66e-b2c0e5e855d6)
+
+How it works in C:
+
+`if x equal 4 call func1, else return nothing`
+
+How it works in ASM:
+```
+1. Move x to rax (accumulator register)
+2. Compare to rax with 4
+3. If not equal jump to line 5
+4. call func1
+5. finish
+
+
+
 
 
 

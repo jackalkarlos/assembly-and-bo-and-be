@@ -200,3 +200,25 @@ What is the difference between the "E" and "R" (like EIP for 32 bit and RIP for 
 
 To see how all registers are broken apart go here:
 https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-architecture
+
+
+# Different Data Types
+
+### Floating Point Values - Floats and Doubles.
+
+### Integer Values - Integers, Booleans, Chars, Pointers, etc.
+Different data types can't be put in just any register. Floating-point values are represented differently than integers. Because of this, floating-point values have special registers. These registers include YMM0 to YMM15 (64-bit) and XMM0 to XMM15 (32-bit). The XMM registers are the lower half of the YMM registers, similar to how EAX is the lower 32 bits of RAX. Something unique about these registers is that they can be treated as arrays. In other words, they can hold multiple values. For example, YMM# registers are 256-bit wide each and can hold 4 64-bit values or 8 32-bit values. Similarly, the XMM# registers are 128-bits wide and can hold 2 64-bit values or 4 32-bit values. Special instructions are needed to utilize these registers as vectors.
+
+A nice table of these registers, and more information about them, can be found here: https://en.wikipedia.org/wiki/Advanced_Vector_Extensions
+
+### Extra Registers
+There are additional registers that should be mentioned. These registers don't have any special uses. There are registers r8 to r15 which are designed to be used by integer type values (not floats or doubles). The lower 4 bytes (32 bits), 2 bytes (16 bits), and 8 bits (1 byte) can all be accessed. These can be accessed by appending the letter "d", "w", or "b".
+Examples:
+
+R8 - Full 64-bit (8 bytes) register.
+
+R8D - Lower double word (4 bytes).
+
+R8W - Lower word (2 bytes)
+
+R8B - Lower byte.

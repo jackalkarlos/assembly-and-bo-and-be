@@ -195,3 +195,8 @@ RIP - Bir sonraki çalıştırılacak fonksiyonun ya da instruction'un adresini 
 ![image](https://github.com/jackalkarlos/assembly-and-bo-and-be/assets/88983987/681af818-2503-4f6a-8899-23635b6f9f43)
 
 If `0x0123456789ABCDEF` was loaded into a 64-bit register such as RAX, then RAX refers to `0x0123456789ABCDEF`, EAX refers to `0x89ABCDEF`, AX refers to `0xCDEF`, AH refers to `0xCD`, AL refers to `0xEF`.
+
+What is the difference between the "E" and "R" (like EIP for 32 bit and RIP for 64 bit) prefixes? Besides one being a 64-bit register and the other 32 bits, the "E" stands for extended. The "R" stands for register. The "R" registers were newly introduced in x64, and no, you won't see them on 32-bit systems.
+
+To see how all registers are broken apart go here:
+https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-architecture
